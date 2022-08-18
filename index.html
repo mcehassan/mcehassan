@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Personal Profile Form</title>
+<!-- for-mobile-apps -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="keywords" content="Personal Profile Form Widget Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<!-- //for-mobile-apps -->
+<link href='//fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/j-forms.css">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+<div class="content">
+		<h1>Personal Profile form</h1>
+		<div class="main w3l">
+			<div class="im-g">
+				<img src="images/logo2.png" alt="logo" height="125" width="100">
+			</div>
+			<form class="contact-forms wthree" onsubmit="return process()">
+
+					<!-- start name -->
+					<div class="first-line agileits">
+						<div class="span8 main-row">
+							<div class="input">
+								<input type="text" id="faculty_name" name="faculty_name" placeholder="Faculty Name*" required="yes">
+							</div>
+						</div>
+					</div>
+					<!-- end name -->
+
+					<!-- start faculty id & Designation -->
+					<div class="first-line agileits">
+						<div class="span6 main-row">
+							<div class="input">
+								<input type="text" id="faculty_id" name="faculty_id" placeholder="Faculty id*" required="yes">
+							</div>
+						</div>
+						<div class="span6 main-row">
+							<div class="input">
+								<input type="text" placeholder="Designation" id="designation" name="designation" required="">
+							</div>
+						</div>
+					</div>
+					<!-- end faculty id & Designation -->
+
+					<!-- start Department and Date of Joining -->
+                    <div class="first-line agileits">
+						<div class="span6 main-row">
+							<div class="input">
+								<input type="text" placeholder="Department" id="dept" name="dept" required="yes">
+							</div>
+						</div>
+						<div class="span6 main-row">
+							<div class="input">
+								<input type="date" id="doj" placeholder="Date of Joining" name="doj" required="">
+							</div>
+						</div>
+					</div>
+					<!-- end Department and Date of Joining -->
+					
+					<!-- start workload -->
+					<div class="first-line agileits">
+						<div class="span8 main-row">
+							<div class="input">
+								<input type="text" placeholder="Direct Workload" id="dwl" name="dwl" required="">
+							</div>
+						</div>
+						<div class="span8 main-row">
+							<div class="input">
+								<input type="text" id="iwl" placeholder="Indirect Workload" name="iwl" required="">
+							</div>
+						</div>
+					</div>
+					<!-- end workload -->
+
+					<!-- start coordinator -->
+					<div class="first-line agileits">
+						<div class="span6 main-row">
+							<div class="input">
+								<input type="text" id="clc" placeholder="College Level Coordinator" name="clc" required="">
+							</div>
+						</div>
+						<div class="span5 main-row">
+							<div class="input">
+								<input type="text" id="dlc" placeholder="Department Level Coordinator" name="dlc" required="">
+							</div>
+						</div>
+					</div>
+					<!-- end coordinator -->
+
+					<!-- start papers -->
+					<div class="first-line agileits">
+						<div class="span6 main-row">
+							<div class="input">
+								<input type="text" id="jp" placeholder="Journal Papers" name="jp" required="">
+							</div>
+						</div>
+						<div class="span5 main-row">
+							<div class="input">
+								<input type="text" id="cp" placeholder="Conference Papers" name="cp" required="">
+							</div>
+						</div>
+					</div>
+					<!-- end papers -->
+
+				<div class="footer">
+					<button type="submit" class="primary-btn" id="sub">Submit</button>
+					<button type="reset" class="secondary-btn">Reset</button>
+				</div>
+
+			</form>
+		</div>
+		<p class="copy_rights">&copy; 2022 | </p>
+</div>
+		<!-- Scripts -->
+
+			<script>
+				let form = document.querySelector("form");
+				form.addEventListener('submit', (e) => {
+					e.preventDefault();
+					document.querySelector("#sub").value = "Submiting..";
+					let data = new FormData(form);
+					fetch('https://script.google.com/macros/s/AKfycby6SaD81ZX1pvTTlTPzjh8htTgE8OxsArajHaXWWS9eXHOAJWn4Ruq1_J_boLP9y38XYg/exec', {
+							method: "POST",
+							body: data
+						})
+						.then(res => res.text())
+						.then(data => {
+							document.querySelector("#msg").innerHTML = data;
+							document.querySelector("#sub").value = "Submit";
+						});
+						form.reset();
+				})
+			</script>
+</body>
+</html>
